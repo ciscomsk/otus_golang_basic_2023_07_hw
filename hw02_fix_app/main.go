@@ -10,13 +10,14 @@ import (
 
 func main() {
 	var path string
-	var staff []types.Employee
 
 	fmt.Println("Enter data file path: ")
 	_, err := fmt.Scanln(&path)
 	if err != nil {
 		path = "data.json"
 	}
+
+	var staff []types.Employee
 
 	staff, err = reader.ReadJSON(path)
 	if err != nil {
