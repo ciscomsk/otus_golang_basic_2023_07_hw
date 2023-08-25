@@ -3,33 +3,35 @@ package main
 import "fmt"
 
 func main() {
-	// var size byte
+	// var size int
 	// getBoardSizeV1(&size)
 
-	size := getBoardSizeV2()
+	size, err := getBoardSizeV2()
+	if err != nil {
+		return
+	}
 	drawBoard(size)
 }
 
-// func getBoardSizeV1(size *int) *int {
+// func getBoardSizeV1(size *int) {
 //	fmt.Println("Enter a chessboard size: ")
 //	_, err := fmt.Scanf("%d", size)
 //	if err != nil {
-//		return nil
+//		return
 //	}
-//
-//	return size
 //}
 
-func getBoardSizeV2() int {
+func getBoardSizeV2() (int, error) {
 	var size int
 
 	fmt.Println("Enter a chessboard size: ")
 	_, err := fmt.Scanf("%d", &size)
 	if err != nil {
-		return 0
+		fmt.Println("Error while reading user input")
+		return 0, err
 	}
 
-	return size
+	return size, nil
 }
 
 func drawBoard(size int) {
