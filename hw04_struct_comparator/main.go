@@ -11,8 +11,8 @@ const (
 func main() {
 	b1 := Book{year: 2010}
 	b2 := Book{year: 2000}
-	bc := newBookComparer(ByYear)
-	fmt.Println(bc.compare(&b1, &b2))
+	bc := NewBookComparer(ByYear)
+	fmt.Println(bc.Compare(&b1, &b2))
 }
 
 type Book struct {
@@ -24,51 +24,51 @@ type Book struct {
 	rate   float64
 }
 
-func (b Book) getID() string {
+func (b Book) GetID() string {
 	return b.id
 }
 
-func (b *Book) setID(id string) {
+func (b *Book) SetID(id string) {
 	b.id = id
 }
 
-func (b Book) getTitle() string {
+func (b Book) GetTitle() string {
 	return b.title
 }
 
-func (b *Book) setTitle(title string) {
+func (b *Book) SetTitle(title string) {
 	b.title = title
 }
 
-func (b Book) getAuthor() string {
+func (b Book) GetAuthor() string {
 	return b.author
 }
 
-func (b *Book) setAuthor(author string) {
+func (b *Book) SetAuthor(author string) {
 	b.author = author
 }
 
-func (b Book) getYear() int {
+func (b Book) GetYear() int {
 	return b.year
 }
 
-func (b *Book) setYear(year int) {
+func (b *Book) SetYear(year int) {
 	b.year = year
 }
 
-func (b Book) getSize() int {
+func (b Book) GetSize() int {
 	return b.size
 }
 
-func (b *Book) setSize(size int) {
+func (b *Book) SetSize(size int) {
 	b.size = size
 }
 
-func (b Book) getRate() float64 {
+func (b Book) GetRate() float64 {
 	return b.rate
 }
 
-func (b *Book) setRate(rate float64) {
+func (b *Book) SetRate(rate float64) {
 	b.rate = rate
 }
 
@@ -76,11 +76,11 @@ type BookComparer struct {
 	condition string
 }
 
-func newBookComparer(condition string) *BookComparer {
+func NewBookComparer(condition string) *BookComparer {
 	return &BookComparer{condition: condition}
 }
 
-func (bc BookComparer) compare(book1 *Book, book2 *Book) bool {
+func (bc BookComparer) Compare(book1 *Book, book2 *Book) bool {
 	var result bool
 
 	switch bc.condition {
