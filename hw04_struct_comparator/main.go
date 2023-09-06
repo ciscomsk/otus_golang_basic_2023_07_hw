@@ -24,7 +24,7 @@ type Book struct {
 	rate   float64
 }
 
-func (b Book) GetID() string {
+func (b *Book) ID() string {
 	return b.id
 }
 
@@ -32,7 +32,7 @@ func (b *Book) SetID(id string) {
 	b.id = id
 }
 
-func (b Book) GetTitle() string {
+func (b *Book) Title() string {
 	return b.title
 }
 
@@ -40,7 +40,7 @@ func (b *Book) SetTitle(title string) {
 	b.title = title
 }
 
-func (b Book) GetAuthor() string {
+func (b *Book) Author() string {
 	return b.author
 }
 
@@ -48,7 +48,7 @@ func (b *Book) SetAuthor(author string) {
 	b.author = author
 }
 
-func (b Book) GetYear() int {
+func (b *Book) Year() int {
 	return b.year
 }
 
@@ -56,7 +56,7 @@ func (b *Book) SetYear(year int) {
 	b.year = year
 }
 
-func (b Book) GetSize() int {
+func (b *Book) Size() int {
 	return b.size
 }
 
@@ -64,7 +64,7 @@ func (b *Book) SetSize(size int) {
 	b.size = size
 }
 
-func (b Book) GetRate() float64 {
+func (b *Book) Rate() float64 {
 	return b.rate
 }
 
@@ -80,7 +80,7 @@ func NewBookComparer(condition string) *BookComparer {
 	return &BookComparer{condition: condition}
 }
 
-func (bc BookComparer) Compare(book1 *Book, book2 *Book) bool {
+func (bc *BookComparer) Compare(book1 *Book, book2 *Book) bool {
 	var result bool
 
 	switch bc.condition {
